@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi blog</title>
     <!-- Agregamos esta linea para importar el css, verificar en dicha ruta -->
-    @vite(['resources/js/app.js'])
+    <!-- @ vite(['resources/js/app.js']) -->
+    <!-- Para evitar la necesidad de correr vite, se puede agregar directamente en public -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
 </head>
 <body>
     <div class="container mt-3">
@@ -21,6 +23,7 @@
                         <th scope="col">Description</th>
                         <th scope="col">Author</th>
                         <th scope="col">Date created</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,11 +33,16 @@
                             <td>{{ $article->description }}</td>
                             <td>{{ $article->author }}</td>
                             <td>{{ $article->date_created }}</td>
+                            <td>
+                                <a class="btn btn-info" href="">Ver</a>
+                                <a class="btn btn-danger" href="">Eliminar</a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
     </div>
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
 </body>
 </html>

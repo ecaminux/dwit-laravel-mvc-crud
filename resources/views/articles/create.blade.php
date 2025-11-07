@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear artículo</title>
     <!-- Agregamos esta linea para importar el css, verificar en dicha ruta -->
-    @vite(['resources/js/app.js'])
+    <!-- @ vite(['resources/js/app.js']) -->
+    <!-- Para evitar la necesidad de correr vite, se puede agregar directamente en public -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
 </head>
 <body>
     <div class="container mt-3">
@@ -33,5 +35,6 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
 </body>
 </html>
