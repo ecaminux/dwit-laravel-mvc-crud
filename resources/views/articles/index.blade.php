@@ -13,7 +13,8 @@
     <div class="container mt-3">
         <h1>Lista de artículos</h1>
         <div class="d-flex flex-row-reverse">
-            <a class="btn btn-primary" href="{{ route('articles.create') }}">Crear nuevo artículo</a>
+            <a class="btn btn-primary mx-2" href="{{ route('articles.create') }}">Crear nuevo artículo</a>
+            <a class="btn btn-info mx-2" href="{{ route('index') }}">Ir al Inicio</a>
         </div>
         <div>
             <table class="table table-stripped">
@@ -35,7 +36,14 @@
                             <td>{{ $article->date_created }}</td>
                             <td>
                                 <a class="btn btn-info" href="">Ver</a>
-                                <a class="btn btn-danger" href="">Eliminar</a>
+                                <form action="{{ route('articles.destroy', $article) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm"
+                                        onclick="return confirm('¿Seguro que deseas eliminar este artículo?')">
+                                        Eliminar
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
@@ -44,5 +52,10 @@
         </div>
     </div>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
+    <script>
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+        });
+    </script>
 </body>
 </html>
