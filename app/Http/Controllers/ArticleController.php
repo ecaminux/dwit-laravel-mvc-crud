@@ -13,15 +13,15 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        return view('articles.index')->with('articles', Article::getAll());
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public static function create()
     {
-        //
+       return view('articles.create');
     }
 
     /**
