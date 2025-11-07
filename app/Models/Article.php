@@ -16,21 +16,15 @@ class Article extends Model
         'date_created',
     ];
 
-    public function getAll()
+    public static function getAll()
     {
         return self::all();
     }
 
-    public function create(array $data):
+    public static function create(array $data): Article
     {
-        $article = Article::create(
-            [
-                'title' => $data['title'],
-                'description' => $data['description'],
-                'content' => $data['content'],
-                'author' => $data['author']
-            ]
-        );
+        $article = new self($data);
+        $article->save();
         return $article;
     }
 

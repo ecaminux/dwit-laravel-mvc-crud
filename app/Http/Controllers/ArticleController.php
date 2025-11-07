@@ -29,7 +29,15 @@ class ArticleController extends Controller
      */
     public function store(StoreArticleRequest $request)
     {
-        //
+        // El FormRequest ya valida; usa $request->validated()
+        // Enviamos todos los datos recibidos sin validacion
+        $data = $request->all();
+
+        // Crea el registro (requiere $fillable en el modelo)
+        $article = Article::create($data);
+
+        // Redirige con mensaje flash
+        return redirect()->route('articles.index');
     }
 
     /**

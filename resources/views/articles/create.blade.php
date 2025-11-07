@@ -6,11 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{{ route('articles.create') }}" method="post">
-        <input type="text" name="title" id="">
-        <textarea name="content" id=""></textarea>
-        <textarea name="description" id=""></textarea>
-        <input type="text" name="author" id="">
+    <form action="{{ route('articles.store') }}" method="post">
+        <!-- Es importante agregar esta linea para asegurar el intercambio de datos en Laravel -->
+        @csrf
+        <!-- Aquí los campos correspondientes -->
+        <input type="text" name="title" id="title">
+        <textarea name="content" id="content"></textarea>
+        <textarea name="description" id="description"></textarea>
+        <input type="text" name="author" id="author">
         <input type="submit" value="Guardar">
     </form>
     

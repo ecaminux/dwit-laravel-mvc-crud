@@ -11,7 +11,8 @@ class StoreArticleRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        // Este retorno de debe aplicar como TRUE para permitir la solicitud pese a que no tenemos una sesión iniciada
+        return true;
     }
 
     /**

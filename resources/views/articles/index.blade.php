@@ -7,8 +7,7 @@
 </head>
 <body>
     <h1>Lista de artículos</h1>
-    <a href="{{ routes('') }}"></a>
-    <?php $articles = []; ?>
+    <a href="{{ route('articles.create') }}">Crear nuevo artículo</a>
     @foreach ($articles as $article)
         <h3>{{ $article->description }}</h3>
     @endforeach
