@@ -4,13 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi blog</title>
+    <!-- Agregamos esta linea para importar el css, verificar en dicha ruta -->
+    @vite(['resources/js/app.js'])
 </head>
 <body>
-    <h1>Lista de artículos</h1>
-    <a href="{{ route('articles.create') }}">Crear nuevo artículo</a>
-    @foreach ($articles as $article)
-        <h3>{{ $article->description }}</h3>
-    @endforeach
-
+    <div class="container mt-3">
+        <h1>Lista de artículos</h1>
+        <div class="d-flex flex-row-reverse">
+            <a class="btn btn-primary" href="{{ route('articles.create') }}">Crear nuevo artículo</a>
+        </div>
+        <div>
+            <table class="table table-stripped">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Date created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($articles as $article)
+                        <tr>
+                            <td>{{ $article->title }}</td>
+                            <td>{{ $article->description }}</td>
+                            <td>{{ $article->author }}</td>
+                            <td>{{ $article->date_created }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
